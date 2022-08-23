@@ -10,9 +10,13 @@
 </head>
 <body>
 
-  <div class="alert-box" id="alert">알림창임<button onclick="closeAlert()">닫기</button></div>
+  <div class="alert-box" id="alert">
+    <p id="alert-msg">알림창임</p>
+    <button onclick="openAlert('none')">닫기</button>
+  </div>
   <!-- 버튼 누르면 보여달라고 코드짬 -->
-  <button onclick="openAlert()">버튼</button>
+  <button onclick="openAlert('block', '아이디')">버튼1</button>
+  <button onclick="openAlert('block', '비밀번호')">버튼2</button>
 
   <script>
     /**
@@ -21,13 +25,14 @@
      * 함수명 영어작명관습은 카멜케이스임
      * 긴 코드 재사용에도 편리
      */
-    function openAlert() {
-      document.getElementById('alert').style.display = 'block'
+    function openAlert(a, b) {
+      document.getElementById('alert').style.display = a;
+      document.getElementById('alert-msg').innerText = `${b}를 입력하세요`;
     }
 
-    function closeAlert() {
-      document.getElementById('alert').style.display = 'none'
-    }
+    // function closeAlert() {
+    //   document.getElementById('alert').style.display = 'none'
+    // }
   </script>
 </body>
 </html>
