@@ -11,8 +11,8 @@
 <body>
 
   <div class="alert-box" id="alert">
-    <p id="alert-msg">알림창임</p>
-    <button onclick="openAlert('none')">닫기</button>
+    <p id="alert-msg" class="title">알림창임</p>
+    <button id="close">닫기</button>
   </div>
   <!-- 버튼 누르면 보여달라고 코드짬 -->
   <button onclick="openAlert('block', '아이디')">버튼1</button>
@@ -27,8 +27,20 @@
      */
     function openAlert(a, b) {
       document.getElementById('alert').style.display = a;
-      document.getElementById('alert-msg').innerText = `${b}를 입력하세요`;
+      document.getElementsByClassName('title')[0].innerText = `${b}를 입력하세요`;
     }
+
+    /**
+     * addEventListener()
+     * 이거쓰면 onclick 필요 없음
+     * 참고하면 좋을 사항
+     * 이벤트가 뭔가? -> 클릭, 드래그, 키입력, 스크롤 등등
+     * 이벤트를 감지하고 싶다면 addEventListener('event') 쓰면 됨
+     * 즉 일종의 유저가 행하는 행동을 감시하는 역할이라고 생각하면 됨
+     */
+    document.getElementById('close').addEventListener('click', function(){
+      document.getElementById('alert').style.display = 'none'
+    });
 
     // function closeAlert() {
     //   document.getElementById('alert').style.display = 'none'
