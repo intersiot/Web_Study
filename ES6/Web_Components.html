@@ -8,6 +8,8 @@
     
     class 클래스 extends HTMLElement {
       connectedCallback() { // <- 만든 태그가 HTML에 장착될 때 실행할 코드를 적는 곳
+        let 변수 = document.createElement('label'); // html 생성하는 다른 방법
+        this.appendChild(변수); // html 생성 속도가 빨라짐
         this.innerHTML = '<label>이메일인풋이다.</label><input>';
       }
     }
