@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- css 파일 첨부 link 태그 사용 -->
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="alert-box" id="alert">
+    <p id="alert-msg" class="title">알림창임</p>
+    <button id="close">닫기</button>
+  </div>
+  <!-- 버튼 누르면 보여달라고 코드짬 -->
+  <button onclick="openAlert('block', '아이디')">버튼1</button>
+  <button onclick="openAlert('block', '비밀번호')">버튼2</button>
+
+  <script>
+    /**
+     * function : 긴 코드를 짧게 축약하는 방법
+     * function 작명은 구체적인게 좋음
+     * 함수명 영어작명관습은 카멜케이스임
+     * 긴 코드 재사용에도 편리
+     */
+    function openAlert(a, b) {
+      document.getElementById('alert').style.display = a;
+      document.getElementsByClassName('title')[0].innerText = `${b}를 입력하세요`;
+    }
+
+    /**
+     * addEventListener()
+     * 이거쓰면 onclick 필요 없음
+     * 참고하면 좋을 사항
+     * 이벤트가 뭔가? -> 클릭, 드래그, 키입력, 스크롤 등등
+     * 이벤트를 감지하고 싶다면 addEventListener('event') 쓰면 됨
+     * 즉 일종의 유저가 행하는 행동을 감시하는 역할이라고 생각하면 됨
+     */
+    document.getElementById('close').addEventListener('click', function(){
+      document.getElementById('alert').style.display = 'none'
+    });
+
+    // function closeAlert() {
+    //   document.getElementById('alert').style.display = 'none'
+    // }
+  </script>
+</body>
+</html>
+
+<!-- 자주 겪는 에러 
+  1. 조작할 html 하단에 자바스크립트 코드를 짜야 잘됨
+  2. 셀렉터 오타 주의
+  3. 그냥 기본 문법 오타
+-->
