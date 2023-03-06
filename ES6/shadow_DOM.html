@@ -13,6 +13,12 @@
     
     <custom-input></custom-input>
     
+    <!-- HTML 임시보관함 <template> -->
+    <template id="template1">
+      <label>이메일을 입력하세요</label><input>
+      <style>label { color : red }</style>
+    </template>
+    
     <script>
       // shadow DOM 만드는 법
       document.querySelector('mordor').attachShadow({mode : 'open'}) 
@@ -32,6 +38,29 @@
             // 컴포넌트끼리 스타일 겹치고 그러면 난리남.
             // shadow DOM 안에 넣어서 쓰면 아주 좋음. 왜냐? shadow DOM에 넣은 것들은 외부에 영향X
           `;
+        }
+      }
+      
+      // shadow DOM 안에 스타일 넣어서 사용
+      // 이렇게 하면 외부 오염을 방지함 -> HTML 모듈화 완성!
+      // 웹 컴포넌트 특징 : 그냥 짜면 더러움 -> HTML 임시보관함 <template> 사용하자!
+      // 그런데 이렇게 쌩으로 하는 것보다 웹 컴포넌트 도와주는 라이브러리를 사용하는게 좋음
+      // Lit, Stencli(얘는 props, state도 지원함)
+      class 클래스 extends HTMLElement {
+        connectedCallback() {
+          this.attachShadow({ mode : 'open' });
+          // this.shadowRoot.innerHTML = `<label>이메일을 입력하세요</label><input>
+          //  <style>label { color : red }</style>
+          // `;
+          
+          this.shadowRoot.append(template1.content.cloneNode(true));
+          
+          // shaodw DOM에 이벤트리스너도 부착 가능하다.
+          let el = this.shadowRoot.querySelector('label');
+          el.addEventListener('click', function() {
+            console.log('클릭함');
+          });
+          // 이런 것도 복잡하다 싶으면 함수로 빼면 됨.
         }
       }
       
