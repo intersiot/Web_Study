@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Hello, world</title>
+    <link href="main.css" rel="stylesheet">
+  </head>
+  
+  <body>
+    <!-- <input type="range"> --> <!-- 
+      shadow DOM 덕분 
+      HTML 태그들을 몰래 숨겨놓을 수 있다 -> shadow DOM 이라고 함
+    -->
+    
+    <div id="mordor"></div>
+    <script>
+      // shadow DOM 만드는 법
+      document.querySelector('mordor').attachShadow({mode : 'open'}) 
+      // attachShadow : 어둠의 공간 열어주는 함수
+      // 사실 shadowRoot를 열어주는 함수임 (자바스크립트 기본 기능)
+      
+      document.querySelector('mordor').shadowRoot.innerHTML =
+        '<p>심연에서 왔다.</p>';
+    </script>
+  </body>
