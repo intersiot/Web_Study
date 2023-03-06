@@ -9,8 +9,10 @@
       shadow DOM 덕분 
       HTML 태그들을 몰래 숨겨놓을 수 있다 -> shadow DOM 이라고 함
     -->
+    <!-- <div id="mordor"></div> -->
     
-    <div id="mordor"></div>
+    <custom-input></custom-input>
+    
     <script>
       // shadow DOM 만드는 법
       document.querySelector('mordor').attachShadow({mode : 'open'}) 
@@ -19,5 +21,20 @@
       
       document.querySelector('mordor').shadowRoot.innerHTML =
         '<p>심연에서 왔다.</p>';
+        
+      // Web Component + shadow DOM = 완벽한 모듈화
+      class 클래스 extneds HTMLElement { // Web Component 문법
+        connectedCallback() {
+          this.innerHTML = `<label>이메일을 입력하세요</label><input>
+            // 웹 컴포넌트 문법에 스타일을 집어넣고 싶다면?
+            <style>label { color : red }</style>
+            // 근데 이 방법은 조금 위험함. 다른 라벨 태그까지 오염시킴.
+            // 컴포넌트끼리 스타일 겹치고 그러면 난리남.
+            // shadow DOM 안에 넣어서 쓰면 아주 좋음. 왜냐? shadow DOM에 넣은 것들은 외부에 영향X
+          `;
+        }
+      }
+      
+      customElements.define('custom-input', 클래스);
     </script>
   </body>
