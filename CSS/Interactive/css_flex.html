@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Flex</title>
+  <style>
+    .container {
+      display: flex;
+      /* flex-direction: column; */
+      /* 축의 방향으로 기억하자 (디폴트 : row) */
+      /* 축을 오뎅꼬치로 대입하면 기억에 더 잘 남음 */
+      /* justify-content: center; */
+      /* 오뎅꼬치(축) 위에서 정렬을 하는 거 (디폴트 : flex-start) */
+      /* align-items: center; */
+      /* 오뎅꼬치의 수직방향(오뎅을 뜯어내는)으로 정렬 (디폴트 stretch) */
+      height: 80vh;
+      background-color: gray;
+    }
+    .item {
+      /* flex-grow: 1; */
+      /* 여백의 비율을 숫자값에 맞게 줌 (늘어날 때, shrink라고 있는데 이건 줄어들 때임) */
+      /* flex-basis: auto; */
+      /* 원래 콘텐츠가 가진 영역을 어떻게 셋팅해줄 것인가 */
+      flex: 1; /* 축약형임 */
+      /* padding: 2em; */
+      border: 3px solid black;
+      background-color: white;
+    }
+    /* .item:nth-child(1) {
+      flex-grow: 1;
+    }
+    .item:nth-child(2) {
+      flex-grow: 5;
+    }
+    .item:nth-child(3) {
+      flex-grow: 2;
+    }
+    .item:nth-child(4) {
+      flex-grow: 3;
+    }
+    .item:nth-child(5) {
+      flex-grow: 1;
+    } */
+  </style>
+</head>
+<body>
+  <h1>CSS Flex</h1>
+  <p>Grid : 격자로 생겨서 가로축, 세로축 2가지로 구성, 지원하는 브라우저가 많지 않음</p>
+  <p>Flex : 축이 한 방향</p>
+
+  <div class="container">
+    <div class="item">AAA</div>
+    <div class="item">B</div>
+    <div class="item">CCCCCCC</div>
+    <div class="item">DDD</div>
+    <div class="item">E</div>
+  </div>
+</body>
+</html>
