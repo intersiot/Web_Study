@@ -6,7 +6,6 @@
 </ol>
 <br />
 <hr />
-<br />
 <dl>
   <dt>Interactive</dt>
   <dd>인터랙티브 웹 개발 내용 정리</dd>
