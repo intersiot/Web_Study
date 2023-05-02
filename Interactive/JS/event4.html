@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트 이벤트 예제 만들면서 이해</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+    .stage {
+      overflow: hidden;
+      /* vw : viewport width의 줄임말 */
+      /* vh : viewport height의 줄임말 */
+      width: 100vw; /* 브라우저의 폭 */ 
+      height: 75vw; /* 브라우저의 높이 */
+      background-color: #fff000;
+      position: relative;
+    }
+    .ilbuni {
+      width: 100px; height: 100px;
+      border: 3px solid black;
+      box-sizing: border-box;
+      position: absolute;
+      animation: moving 3s infinite alternate;
+    }
+    .ilbuni:nth-of-type(1) {
+      background-color: aqua;
+      left: 5%; bottom: 5%;
+      animation-duration: 2s;
+    }
+    .ilbuni:nth-of-type(2) {
+      background-color: olivedrab;
+      left: 7%; bottom: 7%;
+      animation-duration: 3s;
+    }
+    .ilbuni:nth-of-type(3) {
+      background-color: violet;
+      left: 10%; bottom: 10%;
+      animation-duration: 4s;
+    }
+    @keyframes moving {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(90vw);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>클릭 이벤트 익히기</h1>
+  <div class="stage">
+    <div class="ilbuni">A</div>
+    <div class="ilbuni">B</div>
+    <div class="ilbuni">C</div>
+  </div>
+
+  <script>
+    (function 전역변수회피한다() {
+      // addEventListener 횟수가 많아지면 반복으로 이벤트리스너를 걸어주는 건 바람직하지 않음
+      // 그래서 위임을 한다. (이벤트위임)
+      const 스테이지 = document.querySelector('.stage')
+      
+      function 함수(e) {
+        console.log(e.target) // 내가 직접 누른 애를 가리킴
+        
+        if (e.target.classList.contains('ilbuni')) { // 일분이라는 클래스를 가지고 있는지 없는지 판별 (true/false)
+          스테이지.removeChild(e.target)
+        }
+      }
+      
+      스테이지.addEventListener('click', 함수)
+    })();
+  </script>
+</body>
+</html>
