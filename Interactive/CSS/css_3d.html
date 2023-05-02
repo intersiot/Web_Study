@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 3D</title>
+  <style>
+    .world {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80vw;
+      height: 80vh;
+      /* 현재 오픈한 브라우저창의 60%만 하겠다. */
+      background-color: #fff000;
+      perspective: 500px;
+      /* 3d 효과를 주고 싶다면 원근감을 주면 된다. -> perspective 효과 셋팅
+        보통 px로 값을 준다. */
+    }
+    .card {
+      position: relative;
+      width: 100px; height: 150px;
+      margin: 1em;
+      transform: rotateY(0deg); /* 변화가 있다면 변화 없는 디폴트 형태도 셋팅을 해주면 성능면에서 좋다고 함 */
+      /* transform: perspective(500px) rotateY(45deg); */
+      /* 일정하게 3d 효과를 주고 싶다면 카드 트랜스폼에 퍼스펙티브를 주면 됨 */
+      transition: 1s;
+      transform-style: preserve-3d; /* 카드에도 3d 셋팅을 해줘야 카드사이드에 3d 효과가 들어간다. */
+      /* transform-origin: left; 만약 기준점이 중앙이 아니라면? > 트랜스폼-오리진 사용 */
+    }
+    .card-side {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      border-radius: 0.5em; /* em : 현재 엘리먼트의 폰트 사이즈를 기준으로 함 */
+      font-size: 1.5rem; /* rem : root인 html을 기준 */
+      -webkit-backface-visibility: hidden; /* 사파리에서 적용되도록 */
+      /* -moz-, -o- 등 접두어가 붙는 속성들은 위에 쓰고 마지막에 표준 스타일로 적어줘야 한다. */
+      backface-visibility: hidden; /* 각각 카드사이드 뒷면이 보이지 않도록 셋팅해줘야 함 */
+    }
+    .card-side-front {
+      z-index: 1;
+      background-color: white;
+    }
+    .card-side-back {
+      background-color: red;
+      transform: rotateY(180deg);
+    }
+    .world:hover .card {
+      transform: rotateY(180deg);
+    }
+
+  </style>
+</head>
+<body>
+  <h1>CSS 3D</h1>
+  <p>무대 자체가 3d여야 안에 있는 오브젝트들이 3d가 된다.</p>
+  <div class="world">
+    <div class="card">
+      <div class="card-side card-side-front">F</div>
+      <div class="card-side card-side-back">B</div>
+    </div>
+  </div>
+</body>
+</html>
