@@ -4,7 +4,9 @@
   <li>자바스크립트 인강 정리하며 복습</li>
   <li>web 공부한 것들 정리하며 복습</li>
 </ol>
-
+<br />
+<hr />
+<br />
 <dl>
   <dt>Interactive</dt>
   <dd>인터랙티브 웹 개발 내용 정리</dd>
