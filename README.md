@@ -13,4 +13,6 @@
   <dd>바닐라 자바스크립트 내용 정리</dd>
   <dt>ES6</dt>
   <dd>자바스크립트 ES6 내용 정리</dd>
+  <dt>CSS</dt>
+  <dd>CSS 내용 정리</dd>
 </dl>
