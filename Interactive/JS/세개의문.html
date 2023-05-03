@@ -100,10 +100,11 @@
   <script>
     (function() {
       const 스테이지 = document.querySelector('.stage')
+      let 지금누른거 // 현재 활성화된 아이템을 저장할 곳
 
       function 문열기(e) {
         // 열려있는 애를 찾고싶으면
-        const 지금누른거 = document.querySelector('.door-opened') // 근데 이런식으로 클래스로 접근하는 건 처리 속도가 느림
+        // const 지금누른거 = document.querySelector('.door-opened') // 근데 이런식으로 클래스로 접근하는 건 처리 속도가 느림
         if (지금누른거) { // 만약에 열려있는게 있다면(currentItem에 값이 있다면) 
           지금누른거.classList.remove('door-opened') // door-opened를 지워라
         }
@@ -113,6 +114,8 @@
         // 즉 클릭한 타켓(현재 door-body)의 부모에만! 
         if(누른거.classList.contains('door-body')) {
           누른거.parentNode.classList.add('door-opened')
+          // 지금 내가 누른 애의 값을 갱신
+          지금누른거 = 누른거.parentNode
         }
       }
       스테이지.addEventListener('click', 문열기)
