@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>009. 비교연산자</title>
+    <link rel="stylesheet" href="common.css" />
+</head>
+
+<body>
+    <div class="contents">
+        <h1>자바스크립트 코드레시피</h1>
+        <hr />
+        <h2>비교 연산자</h2>
+        <h4>Syntax</h4>
+        <table>
+            <tr>
+                <th>구분</th>
+                <th>의미</th>
+            </tr>
+            <tr>
+                <td>A == B</td>
+                <td>A, B의 값이 같은가</td>
+            </tr>
+            <tr>
+                <td>A === B</td>
+                <td>A, B의 값과 데이터 타입이 같은가</td>
+            </tr>
+            <tr>
+                <td>A != B</td>
+                <td>A, B의 값이 다른가</td>
+            </tr>
+            <tr>
+                <td>A !== B</td>
+                <td>A, B의 값과 데이터 타입이 다른가</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="background-color: lightgray;">그외 < <= > >= 등.</td>
+            </tr>
+        </table>
+        <h4>== 와 ===의 차이점</h4>
+        <textarea disabled>
+            자바스크립트의 데이터는 숫자와 문자열 등의 타입이 있다.
+            ==를 사용한 비교는 두 비교 대상이 다른 타입이라도 동일한 것으로 간주하여 비교한다.
+
+            ===를 사용한 비교는 두 데이터의 타입이 다르면 다른 데이터로 간주하여 비교한다.
+            !=나 !==의 관계와 같다.
+        </textarea>
+    </div>
+
+    <script>
+        /**
+         * 두 개의 값 비교 (비교 연산자)
+         * > 두 개의 값을 비교하고 싶을 때
+         * > 변수의 값이 동일한지 확인하고 싶을 때
+         */
+
+        console.log('사과' == '사과') // true
+        console.log(10 < 30) // true
+        console.log(20 >= 30) // false
+
+        const 어레이1 = [1, 2, 3]
+        const 어레이2 = [1, 2, 3]
+        console.log(어레이1 == 어레이2) // false -> 참조하는 곳이 다름
+
+        const 어레이3 = [1, 2, 3]
+        const 어레이4 = 어레이3
+        console.log(어레이3 == 어레이4) // true -> 참조하는 곳이 같음
+    </script>
+</body>
+
+</html>
