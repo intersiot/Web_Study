@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 16px;
+}
+
+.contents {
+    padding: 50px;
+}
+
+h1 {
+    color: orange;
+}
+
+h4 {
+    color: orangered;
+    position: relative;
+    margin-left: 20px;
+}
+
+h4::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    transform: translateY(-50%);
+    background-color: orangered;
+    transform: rotate(24deg);
+}
+
+table, textarea {
+    width: 500px;
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+table th,
+table td {
+    border: 1px solid lightgray;
+}
+
+table td {
+    text-align: center;
+}
+
+textarea {
+    height: 100px;
+    resize: none;
+}
