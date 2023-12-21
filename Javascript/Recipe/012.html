@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>009. 비교연산자</title>
+    <link rel="stylesheet" href="common.css" />
+</head>
+
+<body>
+    <div class="contents">
+        <h1>자바스크립트 코드레시피</h1>
+        <hr />
+        <h2>화살표 함수</h2>
+        <h4>Syntax</h4>
+        <table>
+            <tr>
+                <th>구분</th>
+                <th>의미</th>
+            </tr>
+            <tr>
+                <td>(파라미터) => { 처리내용 }</td>
+                <td>함수를 정의</td>
+            </tr>
+        </table>
+        <h4>화살표 함수는 다음과 같이 정의함</h4>
+        <textarea disabled>
+            // 함수를 정의
+            const calcSum = (a, b, c) => {
+                const result = a + b + c;
+                return result;
+            };
+
+            // 함수의 실행방식은 일반 함수와 같음
+            calcSum(1, 2, 3);
+
+            화살표 함수는 일반 함수와 달리 일부를 생략할 수 있음.
+            파라미터가 하나인 경우는 ()의 생략이 가능하나, 파라미터가 없거나 2개 이상인 경우는 생략할 수 없음.
+            
+            const myFunction1 = (a) => {
+                return a + 2;
+            };
+            
+            const myFunction2 = a => {
+                return a + 2;
+            };
+
+            화살표 함수의 정의가 한줄인 경우 {}와 return을 생략할 수 있음
+
+            const myFunction3 = (a) => a + 2;
+        </textarea>
+    </div>
+
+    <script>
+        // 함수를 정의
+        const calcSum = (a, b, c) => {
+            const result = a + b + c;
+            return result;
+        };
+
+        // 함수의 실행방식은 일반 함수와 같음
+        calcSum(1, 2, 3);
+
+        // 화살표 함수는 일반 함수와 달리 일부를 생략할 수 있음.
+        // 파라미터가 하나인 경우는()의 생략이 가능하나, 파라미터가 없거나 2개 이상인 경우는 생략할 수 없음.
+
+        const myFunction1 = (a) => {
+            return a + 2;
+        };
+
+        const myFunction2 = a => {
+            return a + 2;
+        };
+
+        // 화살표 함수의 정의가 한줄인 경우 { }와 return을 생략할 수 있음
+
+        const myFunction3 = (a) => a + 2;
+    </script>
+</body>
+
+</html>
