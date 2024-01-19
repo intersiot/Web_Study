@@ -29,17 +29,18 @@
 
   <script>
     // this 키워드와 이벤트 객체
-    (function 전역변수피하기() {
-      const 캐릭터 = document.querySelector('.characters')
-      캐릭터.addEventListener('click', 함수)
+    {
+      const characters = document.querySelector('.characters');
 
-      function 함수(e) { // e -> 이벤트 객체
-        // console.log(this)
-        // console.log(e.currentTarget)
-        console.log(e.target)
+      function clickHandler(e) { // e -> 이벤트 객체
+        // console.log(this);
+        // console.log(e);
+        // console.log(e.currentTarget);
+        console.log(e.target);
       }
-    })();
-
+      
+      캐릭터.addEventListener('click', clickHandler);
+    }
   </script>
 </body>
 
