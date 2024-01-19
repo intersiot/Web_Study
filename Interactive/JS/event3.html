@@ -119,6 +119,24 @@
 
       스테이지.addEventListener('click', 함수)
     })();
+
+    // 이런식으로도 전역변수 피해서 사용할 수 있음
+    {
+      const ilbuniGroup = document.querySelectorAll('.ilbuni');
+      // console.log(ilbuniGroup);
+      const stage = document.querySelector('.stage');
+      
+      function clickHandler(e) {
+          // console.log(this);
+          // console.log(e.currentTarget);
+          // stage.removeChild(this);
+          console.log(this.parentNode);
+          this.parentNode.removeChild(this);
+      }
+      for (let i = 0; i < ilbuniGroup.length; i++) {
+          ilbuniGroup[i].addEventListener('click', clickHandler);
+      }
+    }
   </script>
 </body>
 
