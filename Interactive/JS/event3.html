@@ -15,16 +15,15 @@
 
     .stage {
       overflow: hidden;
-      /* vw : viewport width의 줄임말 */
-      /* vh : viewport height의 줄임말 */
-      /* height라고해서 무조건 vh를 사용하는 건 아님.
-        height: 75vw로 사용했을 경우 브라우저가 늘어나거나 줄어들 때 width값을 기준으로 늘거나 줄어듬
-        width: 100vh도 마찬가지. height를 기준으로 늘거나 줄어듬.
+      /* 
+      - vw : viewport width의 줄임말
+      - vh : viewport height의 줄임말
+      height라고해서 무조건 vh를 사용하는 건 아님.
+      height: 75vw로 사용했을 경우 브라우저가 늘어나거나 줄어들 때 width값을 기준으로 늘거나 줄어듦
+      width: 100vh도 마찬가지. height를 기준으로 늘거나 줄어듦.
        */
-      width: 100vw;
-      /* 브라우저의 폭 */
-      height: 75vw;
-      /* 브라우저의 높이 */
+      width: 100vw; /* 브라우저의 폭 */
+      height: 75vw; /* 브라우저의 높이 */
       background-color: #fff000;
       position: relative;
     }
